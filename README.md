@@ -41,13 +41,16 @@
 | [Sesame CSM](https://github.com/SesameAILabs/csm) | — | — | EN | — |
 | [Silma TTS](https://github.com/SILMA-AI/silma-tts) | — | — | EN, ES | Apache 2.0 |
 | [StyleTTS 2](https://github.com/yl4579/StyleTTS2) | Style diffusion + GAN | — | EN | MIT |
+| [Tortoise-TTS](https://github.com/neonbjb/tortoise-tts) | Autoregressive + diffusion | — | EN | Apache 2.0 |
 | [VITS](https://github.com/jaywalnut310/vits) | VAE + GAN | — | Multi | MIT |
 | [VoxCPM](https://github.com/OpenBMB/VoxCPM) | — | — | Multi | MIT |
 
-#### API Wrappers
+#### API Wrappers & Related Projects
 
 | Project | Description |
 |---------|-------------|
+| [Edge-TTS](https://github.com/rany2/edge-tts) | Free Microsoft Edge TTS API wrapper, no API key required |
+| [tortoise-tts-fast](https://github.com/152334H/tortoise-tts-fast) | Faster inference for Tortoise-TTS with optimized pipelines |
 | [xTTS](https://github.com/daswer123/xtts-api-server) | REST API server for Coqui XTTS with streaming support |
 
 ### Cloud & Commercial APIs
@@ -69,11 +72,12 @@
 
 | Category | Models / Approaches |
 |----------|-------------------|
-| **Autoregressive** | Tacotron, Tacotron2, VITS, Bark, WaveNet |
+| **Autoregressive** | Tacotron, Tacotron2, VITS, Bark, WaveNet, Tortoise-TTS |
 | **Non-Autoregressive** | FastSpeech, FastSpeech 2, ParaNet, FastPitch, Aligner TTS |
 | **Flow-based** | Glow-TTS, Flowtron, F5-TTS (flow matching) |
 | **GAN-based** | HiFi-GAN, MelGAN, BigVGAN, UnivNet |
-| **Diffusion** | StyleTTS 2 (style diffusion), OmniVoice, CosyVoice 2 |
+| **Diffusion** | StyleTTS 2 (style diffusion), OmniVoice, CosyVoice 2, Tortoise-TTS (diffusion decoder) |
+| **Hybrid (AR + Diffusion)** | Tortoise-TTS |
 | **Vocoders** | WaveNet, WaveRNN, HiFi-GAN, MelGAN, Parallel WaveGAN, LPCNet, BigVGAN |
 | **Formant Synthesis** | eSpeak NG, Festival |
 
@@ -150,6 +154,7 @@
 | [IndexTTS 2](https://github.com/index-tts/index-tts) | ~10 seconds | EN, ZH | Apache 2.0 | — |
 | [OpenVoice V2](https://github.com/myshell-ai/OpenVoice) | ~5 seconds | Multi | MIT | — |
 | [Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS) | 3 seconds | 10 | Apache 2.0 | — |
+| [Tortoise-TTS](https://github.com/neonbjb/tortoise-tts) | ~30 seconds | EN | Apache 2.0 | Autoregressive + diffusion |
 | [XTTS-v2 (Coqui)](https://github.com/coqui-ai/TTS) | 6 seconds | 16+ | MPL 2.0 | — |
 
 ### Voice Conversion (STS)
@@ -212,6 +217,15 @@ echo "Hello world" | piper --model en_US-lessac-medium --output_file output.wav
 # Bark
 pip install git+https://github.com/suno-ai/bark.git
 python -c "from bark import generate_audio; generate_audio('Hello world')"
+
+# Tortoise-TTS
+pip install tortoise-tts
+python -c "
+from tortoise.api import TextToSpeech
+from tortoise.utils.audio import load_audio
+tts = TextToSpeech()
+tts.tts_with_preset('Hello world', voice_samples=None, preset='fast')
+"
 ```
 
 ### Self-Hosted STT
@@ -444,6 +458,7 @@ async def run_agent(ctx):
 | [OpenVoice](https://arxiv.org/abs/2312.01479) | 2023 | Voice cloning with style control |
 | [StyleTTS 2](https://arxiv.org/abs/2306.07691) | 2023 | TTS via style diffusion |
 | [Tacotron 2](https://arxiv.org/abs/1712.05884) | 2017 | TTS via WaveNet conditioning |
+| [Tortoise-TTS](https://github.com/neonbjb/tortoise-tts) | 2023 | High-quality TTS with autoregressive + diffusion |
 | [VITS](https://arxiv.org/abs/2106.06103) | 2021 | Variational inference + adversarial TTS |
 | [Wav2Vec 2.0](https://arxiv.org/abs/2006.11477) | 2020 | Self-supervised speech representation |
 | [Whisper](https://arxiv.org/abs/2212.04356) | 2022 | Speech recognition at scale |
