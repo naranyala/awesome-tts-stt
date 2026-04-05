@@ -2,7 +2,7 @@
 
 > A curated list of awesome text-to-speech (TTS), speech-to-text (STT), speech synthesis, recognition, voice cloning, and audio processing resources.
 
-[📊 Benchmarks](#benchmarks--leaderboards) · [💬 TTS](#text-to-speech-tts) · [🎙️ STT](#speech-to-text-stt) · [🔊 Voice Cloning](#voice-cloning--conversion) · [🎧 Speech Enhancement](#speech-enhancement--audio-processing) · [📚 Datasets](#datasets) · [🛠️ Tooling](#tooling--infrastructure) · [🎓 Learning](#learning-resources)
+[💬 TTS](#text-to-speech-tts) · [🎙️ STT](#speech-to-text-stt) · [🔊 Voice Cloning](#voice-cloning--conversion) · [🎧 Speech Enhancement](#speech-enhancement--audio-processing) · [🚀 Quick Start](#quick-start-guides) · [💡 Use Cases](#use-cases--applications) · [💻 Hardware](#hardware--requirements) · [📦 Apps & Products](#apps--products) · [🛠️ Tooling](#tooling--infrastructure) · [📚 Datasets](#datasets) · [🎓 Learning](#learning-resources)
 
 ---
 
@@ -66,15 +66,15 @@
 
 | Service | Key Features | Pricing | Latency |
 |---------|-------------|---------|---------|
-| [ElevenLabs](https://elevenlabs.io/) | Industry-leading quality, professional voice cloning (3min), AI dubbing, 70+ languages | $0.10/min | ~200ms |
-| [Cartesia Sonic-3](https://cartesia.ai/) | Ultra-low latency streaming, natural laughs/emotes, 40+ languages, 15s cloning | Pay-per-char | 40ms (Turbo) |
-| [OpenAI TTS](https://platform.openai.com/docs/guides/text-to-speech) | Steerable output (tone, pacing), 13+ custom voices, GPT-4o mini integration | Pay-per-char | ~300ms |
+| [ElevenLabs](https://elevenlabs.io/) | Industry-leading quality, voice cloning (3min), AI dubbing, 70+ languages | $0.10/min | ~200ms |
+| [Cartesia Sonic-3](https://cartesia.ai/) | Ultra-low latency streaming, natural laughs/emotes, 40+ languages | Pay-per-char | 40ms (Turbo) |
+| [OpenAI TTS](https://platform.openai.com/docs/guides/text-to-speech) | Steerable output (tone, pacing), 13+ custom voices | Pay-per-char | ~300ms |
 | [Deepgram Aura-2](https://deepgram.com/) | Sub-200ms TTFB, 40+ English accents, semantic turn detection | $0.03/1k chars | 90ms |
 | [Amazon Polly](https://aws.amazon.com/polly/) | Standard/Neural/Generative tiers, colloquial speech, 5M free chars/mo | $4-100/1M chars | ~200ms |
-| [Google Cloud TTS](https://cloud.google.com/text-to-speech) | Natural voices, pitch/rate customization, AudioLM neural voices | Pay-per-char | ~200ms |
-| [Azure AI Speech](https://azure.microsoft.com/products/ai-services/ai-speech/) | Neural TTS, custom voice creation, personal voice cloning | Pay-per-char | ~250ms |
-| [PlayHT](https://play.ht/) | 829 AI voices, 142 languages, instant cloning, multi-platform integrations | $39-99/mo | ~300ms |
-| [Resemble AI](https://www.resemble.ai/) | Rapid cloning (10s), enterprise security, custom brand voices | Enterprise | ~200ms |
+| [Google Cloud TTS](https://cloud.google.com/text-to-speech) | Natural voices, pitch/rate customization | Pay-per-char | ~200ms |
+| [Azure AI Speech](https://azure.microsoft.com/products/ai-services/ai-speech/) | Neural TTS, custom voice creation | Pay-per-char | ~250ms |
+| [PlayHT](https://play.ht/) | 829 AI voices, 142 languages, instant cloning | $39-99/mo | ~300ms |
+| [Resemble AI](https://www.resemble.ai/) | Rapid cloning (10s), enterprise security | Enterprise | ~200ms |
 | [Fish Audio](https://fish.audio/) | Rapid voice cloning, multilingual TTS API | Freemium | ~250ms |
 
 ### TTS Architecture Reference
@@ -96,40 +96,41 @@
 
 #### 🏆 Tier 1: Most Impactful & Innovative
 
-| Project | WER (EN) | Languages | Speed | Parameters | Notes |
-|---------|----------|-----------|-------|------------|-------|
-| [Cohere Transcribe](https://huggingface.co/CohereLabs/cohere-transcribe-03-2026) | **5.42%** | 14 | 3× throughput | 2B | #1 HF ASR, Apache 2.0, vLLM optimized |
-| [Whisper Large V3 (OpenAI)](https://github.com/openai/whisper) | 7.4% | 99+ | ~10× RT | 1.55B | Most popular STT model |
-| [Canary Qwen 2.5B (NVIDIA)](https://huggingface.co/nvidia/canary-qwen-2.5b) | **5.63%** | EN | 418× RTF | 2.5B | #1 Open ASR Leaderboard, NeMo toolkit |
-| [IBM Granite Speech 3.3](https://huggingface.co/ibm-granite/granite-speech-3.3-8b) | 5.85% | EN, FR, DE, ES | — | 8B | Enterprise accuracy |
+| Project | Description | Languages |
+|---------|-------------|-----------|
+| [Cohere Transcribe](https://huggingface.co/CohereLabs/cohere-transcribe-03-2026) | #1 HF ASR leaderboard, Apache 2.0, vLLM optimized | 14 |
+| [Whisper Large V3 (OpenAI)](https://github.com/openai/whisper) | Most popular STT model, robust multilingual | 99+ |
+| [Canary Qwen 2.5B (NVIDIA)](https://huggingface.co/nvidia/canary-qwen-2.5b) | Top-tier accuracy, NeMo toolkit | EN |
+| [IBM Granite Speech 3.3](https://huggingface.co/ibm-granite/granite-speech-3.3-8b) | Enterprise accuracy, translation support | EN, FR, DE, ES + JP/ZH |
 
 #### ⭐ Tier 2: Strong Alternatives
 
-| Project | WER (EN) | Languages | Speed | Parameters | Notes |
-|---------|----------|-----------|-------|------------|-------|
-| [Whisper Large V3 Turbo](https://github.com/openai/whisper) | 7.75% | 99+ | 216× RTF | 809M | 6× faster, transcription-only |
-| [Parakeet TDT 0.6B](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2) | 6.05% | EN | 3386× RTF | 600M | Auto-punctuation, batch processing |
-| [Parakeet TDT 1.1B (NVIDIA)](https://huggingface.co/nvidia/parakeet-tdt-1.1b) | ~8.0% | EN | **>2000× RTF** | 1.1B | Ultra-low-latency streaming |
-| [Distil-Whisper](https://github.com/huggingface/distil-whisper) | ~8.4% | EN | 5-6× faster | 756M | Frozen encoder, lightweight |
-| [Faster-Whisper](https://github.com/SYSTRAN/faster-whisper) | — | 99+ | 4× faster | — | CTranslate2 optimization |
+| Project | Description | Languages |
+|---------|-------------|-----------|
+| [Whisper Large V3 Turbo](https://github.com/openai/whisper) | 6× faster, transcription-only | 99+ |
+| [Parakeet TDT 0.6B (NVIDIA)](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2) | Extreme speed, auto-punctuation, batch processing | EN |
+| [Parakeet TDT 1.1B (NVIDIA)](https://huggingface.co/nvidia/parakeet-tdt-1.1b) | Ultra-low-latency streaming, RNN-T | EN |
+| [Distil-Whisper](https://github.com/huggingface/distil-whisper) | Frozen encoder, lightweight, long-form optimized | EN |
+| [Faster-Whisper](https://github.com/SYSTRAN/faster-whisper) | CTranslate2 optimization of Whisper, 4× faster | 99+ |
 
 #### 🔧 Tier 3: Specialized & Niche
 
-| Project | Languages | Speed | Parameters | Notes |
-|---------|-----------|-------|------------|-------|
-| [WhisperX](https://github.com/m-bain/whisperX) | Multi | — | — | Word-level timestamps + diarization |
-| [Wav2Vec 2.0 XLSR (Meta)](https://github.com/facebookresearch/fairseq) | 53+ | — | — | Self-supervised, needs fine-tuning |
-| [Vosk](https://github.com/alphacep/vosk-api) | 20+ | Real-time | — | Offline, edge devices |
-| [SpeechBrain](https://github.com/speechbrain/speechbrain) | Multi | — | — | All-in-one speech toolkit |
-| [NeMo (NVIDIA)](https://github.com/NVIDIA/NeMo) | Multi | — | — | End-to-end ASR/TTS platform |
-| [SenseVoice](https://github.com/FunAudioLLM/SenseVoice) | Multi | — | — | ASR + LID + SER + AED |
-| [Silero Models](https://github.com/snakers4/silero-models) | Multi | — | — | Pretrained STT, VAD, punctuation |
-| [Moonshine](https://github.com/usefulsensors/moonshine) | Edge-optimized | Low-latency | **27M** | Smartphones, IoT, embedded |
-| [FunASR](https://github.com/modelscope/FunASR) | Multi | — | — | Alibaba's industrial-grade ASR |
-| [Microsoft MAI-Transcribe-1](https://microsoft.ai/news/state-of-the-art-speech-recognition-with-mai-transcribe-1/) | Multi | — | — | 2026 SOTA, enterprise-grade |
-| [ESPnet](https://github.com/espnet/espnet) | Multi | — | — | End-to-end ASR/TTS/SE toolkit |
-| [Kaldi](https://github.com/kaldi-asr/kaldi) | Multi | — | — | Classic ASR toolkit (C++) |
-| [Coqui STT](https://github.com/coqui-ai/STT) | Multi | — | — | Built on Mozilla DeepSpeech |
+| Project | Description | Languages |
+|---------|-------------|-----------|
+| [WhisperX](https://github.com/m-bain/whisperX) | Word-level timestamps + speaker diarization | Multi |
+| [Wav2Vec 2.0 XLSR (Meta)](https://github.com/facebookresearch/fairseq) | Self-supervised, needs fine-tuning | 53+ |
+| [Vosk](https://github.com/alphacep/vosk-api) | Offline, runs on edge devices | 20+ |
+| [SpeechBrain](https://github.com/speechbrain/speechbrain) | All-in-one speech toolkit | Multi |
+| [NeMo (NVIDIA)](https://github.com/NVIDIA/NeMo) | End-to-end ASR/TTS platform | Multi |
+| [SenseVoice](https://github.com/FunAudioLLM/SenseVoice) | ASR + LID + SER + AED understanding | Multi |
+| [Silero Models](https://github.com/snakers4/silero-models) | Pretrained STT, VAD, punctuation | Multi |
+| [Moonshine](https://github.com/usefulsensors/moonshine) | 27M params, smartphones, IoT, embedded | Edge |
+| [FunASR](https://github.com/modelscope/FunASR) | Alibaba's industrial-grade ASR toolkit | Multi |
+| [Microsoft MAI-Transcribe-1](https://microsoft.ai/news/state-of-the-art-speech-recognition-with-mai-transcribe-1/) | 2026 SOTA, enterprise-grade | Multi |
+| [ESPnet](https://github.com/espnet/espnet) | End-to-end ASR/TTS/SE toolkit | Multi |
+| [Kaldi](https://github.com/kaldi-asr/kaldi) | Classic ASR toolkit (C++) | Multi |
+| [Coqui STT](https://github.com/coqui-ai/STT) | Built on Mozilla DeepSpeech | Multi |
+| [k2 / Icefall](https://github.com/k2-fsa/icefall) | Next-gen ASR with FSA-based recipes | Multi |
 
 ### Cloud & Commercial APIs
 
@@ -143,7 +144,7 @@
 | [Speechmatics](https://www.speechmatics.com/) | Multilingual, diarization, real-time streaming | Custom |
 | [Rev AI](https://www.rev.ai/) | Human-level accuracy, AI + human transcription | $0.005/sec |
 | [Amazon Transcribe](https://aws.amazon.com/transcribe/) | Automatic recognition, PII redaction, custom vocab | $0.024/min |
-| [Gladia Solaria](https://www.gladia.io/) | First truly universal STT model, multilingual, real-time | Pay-per-char |
+| [Gladia Solaria](https://www.gladia.io/) | Universal STT model, multilingual, real-time | Pay-per-char |
 
 ### STT Architecture Reference
 
@@ -176,12 +177,12 @@
 
 ### Voice Conversion (STS)
 
-| Tool | Description | Latency | Best For |
-|------|-------------|---------|----------|
-| [RVC](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI) | Retrieval-based voice conversion with GUI, widely used in music/streaming | Real-time | Music, streaming, live conversion |
-| [so-vits-svc](https://github.com/svc-develop-team/so-vits-svc) | High-quality singing voice conversion using VITS architecture | Near real-time | Singing voice conversion |
-| [WhisperSpeech](https://github.com/WhisperSpeech/WhisperSpeech) | Speech-to-speech translation and conversion pipeline | — | Cross-language voice transfer |
-| [MetaVoice STS](https://github.com/metavoiceio/metavoice-src) | Speech-to-speech with tone color preservation | — | Conversational AI |
+| Tool | Description | Best For |
+|------|-------------|----------|
+| [RVC](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI) | Retrieval-based voice conversion with GUI, widely used in music/streaming | Music, streaming, live conversion |
+| [so-vits-svc](https://github.com/svc-develop-team/so-vits-svc) | High-quality singing voice conversion using VITS architecture | Singing voice conversion |
+| [WhisperSpeech](https://github.com/WhisperSpeech/WhisperSpeech) | Speech-to-speech translation and conversion pipeline | Cross-language voice transfer |
+| [MetaVoice STS](https://github.com/metavoiceio/metavoice-src) | Speech-to-speech with tone color preservation | Conversational AI |
 
 ---
 
@@ -189,14 +190,14 @@
 
 ### Noise Suppression & Enhancement
 
-| Tool | Description | Type |
-|------|-------------|------|
-| [DeepFilterNet](https://github.com/Rikorose/DeepFilterNet) | Low-complexity speech enhancement using deep filtering | Open Source |
-| [Demucs (Meta)](https://github.com/facebookresearch/demucs) | Music/source separation with high-quality audio extraction | Open Source |
-| [Spleeter (Deezer)](https://github.com/deezer/spleeter) | Source separation with pretrained models | Open Source |
-| [RNNoise](https://github.com/xiph/rnnoise) | Recurrent neural network for audio noise reduction | Open Source |
-| [VoiceFixer](https://github.com/haoheliu/voicefixer) | Restore speech quality under real-world degradation | Open Source |
-| [AudioSep](https://github.com/Audio-AGI/AudioSep) | Separate audio with natural language queries | Open Source |
+| Tool | Description |
+|------|-------------|
+| [DeepFilterNet](https://github.com/Rikorose/DeepFilterNet) | Low-complexity speech enhancement using deep filtering |
+| [Demucs (Meta)](https://github.com/facebookresearch/demucs) | Music/source separation with high-quality audio extraction |
+| [Spleeter (Deezer)](https://github.com/deezer/spleeter) | Source separation with pretrained models |
+| [RNNoise](https://github.com/xiph/rnnoise) | Recurrent neural network for audio noise reduction |
+| [VoiceFixer](https://github.com/haoheliu/voicefixer) | Restore speech quality under real-world degradation |
+| [AudioSep](https://github.com/Audio-AGI/AudioSep) | Separate audio with natural language queries |
 
 ### Voice Activity Detection (VAD)
 
@@ -208,39 +209,231 @@
 
 ### Speaker Diarization
 
-| Tool | DER | Description |
-|------|-----|-------------|
-| [pyannote.audio](https://github.com/pyannote/pyannote-audio) | ~10% | De facto standard for speaker diarization, v3.1 with pretrained models |
-| [NVIDIA NeMo](https://github.com/NVIDIA/NeMo) | ~10% | MSDD (Multi-scale Diarization Decoder), GPU-accelerated |
-| [SpeechBrain](https://github.com/speechbrain/speechbrain) | ~12% | Built-in diarization as part of speech processing toolkit |
-| [WhisperX](https://github.com/m-bain/whisperX) | — | Adds diarization on top of Whisper transcriptions |
+| Tool | Description |
+|------|-------------|
+| [pyannote.audio](https://github.com/pyannote/pyannote-audio) | De facto standard for speaker diarization, v3.1 with pretrained models |
+| [NVIDIA NeMo](https://github.com/NVIDIA/NeMo) | MSDD (Multi-scale Diarization Decoder), GPU-accelerated |
+| [SpeechBrain](https://github.com/speechbrain/speechbrain) | Built-in diarization as part of speech processing toolkit |
+| [WhisperX](https://github.com/m-bain/whisperX) | Adds diarization on top of Whisper transcriptions |
 
 ---
 
-## Datasets
+## Quick Start Guides
 
-### Speech Recognition (STT) Datasets
+### "I Want To..." Cheat Sheet
 
-| Dataset | Hours | Languages | Description |
-|---------|-------|-----------|-------------|
-| [Common Voice (Mozilla)](https://commonvoice.mozilla.org/) | 30,000+ | 100+ | Crowdsourced multilingual corpus, CC0 |
-| [LibriSpeech](https://www.openslr.org/12) | 1,000 | EN | Read speech from LibriVox, standard ASR benchmark |
-| [MLS (Multilingual LibriSpeech)](https://www.openslr.org/94) | 50,000 | 8 | Multilingual audiobook corpus |
-| [GigaSpeech](https://github.com/SpeechColab/GigaSpeech) | 10,000 | EN | Podcasts, YouTube, audiobooks |
-| [VoxPopuli](https://github.com/facebookresearch/voxpopuli) | 400K unlabelled | 23 | European Parliament recordings |
-| [LibriLight](https://github.com/facebookresearch/libri-light) | 60,000 | EN | Unlabelled audiobook dataset |
-| [GigaST](https://huggingface.co/datasets) | 400,000 | Multi | Largest multilingual STT dataset |
-| [AISHELL](https://www.openslr.org/33) | 178 | ZH | Mandarin read speech |
+| Goal | Recommended Tool | Why |
+|------|-----------------|-----|
+| Transcribe a podcast/audio file | **Whisper V3** or **Faster-Whisper** | Best balance of accuracy and multilingual support |
+| Clone a voice from a short sample | **Qwen3-TTS** (3s) or **GPT-SoVITS** (10s) | Fastest cloning with high quality |
+| Generate expressive/creative speech | **Bark (Suno)** | Emotions, laughter, music, highly expressive |
+| Run TTS on a Raspberry Pi / edge device | **Piper** or **Moonshine** (STT) | Lightweight, fully local, low resource |
+| Build a real-time voice agent | **LiveKit Agents** + Deepgram + Cartesia | End-to-end framework with sub-200ms latency |
+| Convert singing voice | **RVC** | Real-time, massive community, GUI ecosystem |
+| Transcribe meetings with speaker labels | **WhisperX** or **AssemblyAI** | Word-level timestamps + diarization |
+| Clean up noisy audio recordings | **DeepFilterNet** or **VoiceFixer** | Deep learning-based enhancement |
+| Transcribe in 50+ languages | **Whisper V3** or **Coqui TTS** | Broadest language coverage |
+| Self-host TTS with zero per-minute cost | **Qwen3-TTS** or **Coqui TTS** | Apache 2.0 / open license, self-hostable |
+| Generate voiceovers for videos | **ElevenLabs** or **Fish Audio** | Professional quality, rapid generation |
+| Real-time transcription with extreme speed | **Parakeet TDT 0.6B** | >3000× real-time factor |
 
-### Speech Synthesis (TTS) Datasets
+### Quick Start: Self-Hosted TTS
 
-| Dataset | Hours | Speakers | Description |
-|---------|-------|----------|-------------|
-| [LibriTTS](https://www.openslr.org/60) | 585 | 2,456 | Read speech for TTS, derived from LibriSpeech |
-| [VCTK](https://datashare.ed.ac.uk/handle/10283/3443) | 44 | 109 | English speech with diverse accents |
-| [LJSpeech](https://keithito.com/LJ-Speech-Dataset/) | 24 | 1 (female) | Standard single-speaker TTS benchmark |
-| [JVS Corpus](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus) | 30 | 100 | Japanese speech corpus |
-| [Common Voice TTS splits](https://commonvoice.mozilla.org/) | Varies | 100+ | Multilingual crowdsourced TTS data |
+```bash
+# Option 1: Coqui TTS (most versatile)
+pip install TTS
+tts --model_name tts_models/en/ljspeech/tacotron2-DDC \
+    --text "Hello world" --out_path output.wav
+
+# Option 2: Piper (lightweight, local)
+pip install piper-tts
+echo "Hello world" | piper --model en_US-lessac-medium --output_file output.wav
+
+# Option 3: Bark (expressive, creative)
+pip install git+https://github.com/suno-ai/bark.git
+python -c "from bark import generate_audio; generate_audio('Hello world')"
+```
+
+### Quick Start: Self-Hosted STT
+
+```bash
+# Option 1: Whisper (most popular)
+pip install openai-whisper
+whisper audio.mp3 --model large --language en
+
+# Option 2: Faster-Whisper (4× speedup)
+pip install faster-whisper
+python -c "
+from faster_whisper import WhisperModel
+model = WhisperModel('large-v3', device='cuda')
+segments, info = model.transcribe('audio.mp3')
+for seg in segments: print(f'[{seg.start:.1f}s - {seg.end:.1f}s] {seg.text}')
+"
+
+# Option 3: Vosk (offline, edge devices)
+pip install vosk
+python -c "
+from vosk import Model, KaldiRecognizer
+import wave
+wf = wave.open('audio.wav', 'rb')
+model = Model('vosk-model-small-en-us-0.15')
+rec = KaldiRecognizer(model, wf.getframerate())
+"
+```
+
+### Quick Start: Voice Agent (STT → LLM → TTS)
+
+```python
+# Using LiveKit Agents framework
+# pip install livekit-agents livekit-plugins-deepgram livekit-plugins-cartesia
+from livekit.agents import Agent, AgentSession, AgentServer
+
+class Assistant(Agent):
+    def __init__(self):
+        super().__init__(instructions="You are a helpful voice assistant.")
+
+server = AgentServer()
+
+@server.rtc_session(agent_name="voice-agent")
+async def run_agent(ctx):
+    session = AgentSession(
+        stt="deepgram/nova-3:multi",
+        llm="openai/gpt-4.1-mini",
+        tts="cartesia/sonic-3:<voice-uuid>",
+    )
+    await session.start(room=ctx.room, agent=Assistant())
+    await session.generate_reply()
+```
+
+---
+
+## Use Cases & Applications
+
+### Text-to-Speech Use Cases
+
+| Use Case | Description | Recommended Tools |
+|----------|-------------|-------------------|
+| **Accessibility** | Screen readers, visual impairment aids, WCAG compliance | Piper, eSpeak NG, Coqui TTS |
+| **Audiobook Narration** | Large-scale audio book production with consistent voice quality | ElevenLabs, Fish Audio, StyleTTS 2 |
+| **E-Learning** | Audio lessons, pronunciation training, multilingual education | MeloTTS, Coqui TTS, Azure AI Speech |
+| **Gaming & Storytelling** | Dynamic real-time dialogue adapting to player choices | Cartesia Sonic-3, Bark, ChatTTS |
+| **Voice Assistants** | Natural AI voice responses for banking, retail, service apps | OpenAI TTS, Qwen3-TTS, Chatterbox |
+| **Customer Support IVR** | Dynamic menus and account details in call centers | Deepgram Aura-2, Amazon Polly |
+| **Video Production** | Rapid voiceovers for YouTube, ads, social content | ElevenLabs, Fish Audio, CosyVoice 2 |
+| **GPS Navigation** | Spoken directions and traffic alerts for automotive | Piper (offline), eSpeak NG |
+| **Content Localization** | Dubbing video content into multiple languages | ElevenLabs AI Dubbing, Coqui TTS |
+| **News & Articles** | Convert written content to audio for multitasking | Coqui TTS, OpenAI TTS |
+
+### Speech-to-Text Use Cases
+
+| Use Case | Description | Recommended Tools |
+|----------|-------------|-------------------|
+| **Medical Documentation** | Automate clinical notes, HIPAA-compliant transcription | Whisper V3, AssemblyAI, Azure Speech |
+| **Customer Service** | Real-time call transcription, intent detection, routing | Deepgram, Google Cloud STT |
+| **Call Analysis** | Sentiment analysis, key phrase detection, business insights | AssemblyAI, WhisperX |
+| **Video Content** | Generate captions, timestamps, repurpose content into clips | Whisper V3, Gladia Solaria |
+| **Legal Discovery** | Searchable text from audio evidence, PII redaction | AssemblyAI, Rev AI, Speechmatics |
+| **Education** | Automatic captioning, lecture transcription, summaries | Whisper V3, Vosk (offline) |
+| **Market Research** | Extract insights from customer interactions | AssemblyAI, Deepgram |
+| **Live Captioning** | Low-latency captions for broadcasts and events | Parakeet TDT, Deepgram |
+| **Sales Intelligence** | Capture and analyze sales calls for coaching | AssemblyAI, WhisperX |
+| **Meeting Transcription** | Multi-speaker meetings with speaker labels | WhisperX, Cohere Transcribe |
+
+### Combined STT + TTS Patterns
+
+| Pattern | Description | Example Stack |
+|---------|-------------|---------------|
+| **Voice Agent** | Speech → STT → LLM → TTS → Speech | Whisper → GPT-4 → Cartesia |
+| **Real-Time Translation** | Speech in Language A → STT → Translate → TTS in Language B | Whisper → Translation → Coqui TTS |
+| **Meeting Summarizer** | Meeting audio → STT → LLM Summary → TTS Audio Summary | WhisperX → LLM → ElevenLabs |
+| **Podcast Search** | Podcast → STT → Text Search → Return Timestamps | Faster-Whisper → Elasticsearch |
+| **Voice Memo Assistant** | Voice memo → STT → NLP extraction → Structured notes | Whisper → NLP Pipeline |
+
+---
+
+## Hardware & Requirements
+
+### TTS Hardware Requirements
+
+| Model | VRAM (GB) | GPU Required | Notes |
+|-------|-----------|--------------|-------|
+| **KaniTTS2** | 3 | Any | Lowest requirement, consumer GPU |
+| **Piper** | 1-2 | Integrated | CPU inference possible, no GPU |
+| **Kokoro** | 2-4 | Modern GPU | 82M parameters, lightweight |
+| **MeloTTS** | 4-6 | Mid-range GPU | Multi-language support |
+| **GPT-SoVITS** | 6-8 | NVIDIA recommended | Requires fine-tuning |
+| **Qwen3-TTS** | 6-8 | Modern GPU | Streaming, fast inference |
+| **Bark** | 8-10 | High-end GPU | Large transformer model |
+| **Coqui TTS (XTTS)** | 8-12 | High-end GPU | Multi-lingual, voice cloning |
+| **CosyVoice 2** | 10-16 | High-end GPU | Large language model |
+
+### STT Hardware Requirements
+
+| Model | VRAM (GB) | Speed | Notes |
+|-------|-----------|-------|-------|
+| **Moonshine** | 0.5 | Low | Edge devices, smartphones |
+| **Vosk** | 1-2 | Real-time | CPU inference, no GPU |
+| **Distil-Whisper** | 2-4 | Fast | Lightweight, long-form |
+| **Whisper V3 Turbo** | 4-6 | Fast | 6× faster than base |
+| **Parakeet TDT 0.6B** | 4-6 | **Extreme** | >3000× real-time |
+| **Whisper V3 Base** | 6-8 | Medium | Good balance |
+| **Faster-Whisper** | 6-8 | Fast | 4× faster, CTranslate2 |
+| **Whisper V3 Large** | 10-14 | Medium | Highest accuracy |
+| **Cohere Transcribe** | 8-12 | Fast | vLLM optimized |
+| **IBM Granite 8B** | 16-24 | Medium | Enterprise, high VRAM |
+
+### Minimum Hardware for Common Tasks
+
+| Task | Minimum Setup | Recommended |
+|------|--------------|-------------|
+| **Offline TTS (Piper)** | Intel i5, 4GB RAM | Raspberry Pi 4 |
+| **Whisper Transcription** | 6GB VRAM GPU | RTX 3060 / 8GB |
+| **Real-Time Voice Agent** | 8GB VRAM GPU | RTX 4070 / 12GB |
+| **Voice Cloning (GPT-SoVITS)** | 12GB VRAM GPU | RTX 3090 / 24GB |
+| **Production STT Server** | 16GB VRAM GPU | A100 40GB |
+
+---
+
+## Apps & Products
+
+### Open-Source Applications
+
+| App | Description | Tech Stack |
+|-----|-------------|------------|
+| [Open WebUI](https://github.com/open-webui/open-webui) | ChatGPT-like UI with TTS/STT integration | Whisper, Coqui TTS |
+| [AllTalk TTS](https://github.com/erew123/alltalk_tts) | TTS extension for text generation web UIs | Coqui TTS, Piper, GTTS |
+| [Pinokio](https://github.com/pinokio-computer/pinokio) | One-click installer for AI apps including TTS/STT | Multiple |
+| [RVC WebUI](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI) | Web interface for real-time voice conversion | RVC |
+| [GPT-SoVITS WebUI](https://github.com/RVC-Boss/GPT-SoVITS) | Web interface for few-shot voice cloning | GPT-SoVITS |
+| [WhisperX](https://github.com/m-bain/whisperX) | CLI tool for transcription with diarization | Whisper + pyannote |
+| [LiveKit Agents](https://github.com/livekit/agents) | Framework for building real-time voice agents | Deepgram, Cartesia, OpenAI |
+| [Bark UI](https://github.com/camenduru/bark-ui) | Web UI for Bark text-to-speech | Bark |
+| [Kokoro WebUI](https://github.com/nazdridoy/kokoro-webui) | Simple web interface for Kokoro TTS | Kokoro |
+| [Faster-Whisper-Transcriber](https://github.com/oliverguhr/faster-whisper-server) | REST API server for Faster-Whisper | Faster-Whisper |
+
+### Notable Commercial Products
+
+| Product | Category | Description |
+|---------|----------|-------------|
+| [Otter.ai](https://otter.ai) | Meeting Transcription | Real-time transcription with AI summaries |
+| [Descript](https://descript.com) | Audio/Video Editing | Edit audio by editing text, overdub with cloned voice |
+| [ElevenLabs](https://elevenlabs.io/) | Voice Platform | Voice cloning, dubbing, reader app |
+| [Murf AI](https://murf.ai/) | Voice Generator | Studio-quality voiceover generation |
+| [Speechify](https://speechify.com/) | Text-to-Speech Reader | Read articles, PDFs, books aloud |
+| [Sonix](https://sonix.ai/) | Transcription | Automated transcription with translation |
+| [Trint](https://trint.com/) | Transcription | AI transcription with collaborative editing |
+| [Fireflies.ai](https://fireflies.ai/) | Meeting Assistant | AI notetaker for meetings |
+
+### AI Voice Agent Platforms
+
+| Platform | Description |
+|----------|-------------|
+| [Vapi](https://vapi.ai/) | Inbound/outbound voice agents for customer support |
+| [Bland AI](https://www.bland.ai/) | Real-time AI phone calls with custom personalities |
+| [Retell AI](https://www.retellai.com/) | Build human-like conversational AI voice agents |
+| [Play AI](https://play.ai/) | Conversational AI voice agents with low latency |
+| [Synthflow AI](https://synthflow.ai/) | No-code voice agent builder |
+| [LiveKit](https://livekit.io/) | Open-source WebRTC infrastructure for voice AI |
 
 ---
 
@@ -280,14 +473,43 @@
 | [OpenVINO](https://github.com/openvinotoolkit/openvino) | Intel hardware optimization |
 | [Triton Inference Server](https://github.com/triton-inference-server/server) | NVIDIA cloud inference serving |
 
-### Evaluation & Benchmarking
+### Python Libraries
 
-| Tool | Description |
-|------|-------------|
-| [Open ASR Leaderboard (HF)](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) | Community ASR leaderboard with WER benchmarks |
-| [Superb Benchmark](https://superbbenchmark.org/) | Speech Universal Performance Benchmark |
-| [TTS Evaluation](https://github.com/keonlee94/tts-evaluation) | MOS, MCD, F0 metrics for TTS quality |
-| [LibriSpeech test sets](https://www.openslr.org/12) | Standard clean/other ASR evaluation splits |
+| Library | Purpose |
+|---------|---------|
+| [gTTS](https://github.com/pndurette/gTTS) | Google Translate TTS API wrapper |
+| [pyttsx3](https://github.com/nateshmbhat/pyttsx3) | Offline TTS for Python (Sapi5, nsss, espeak) |
+| [speech_recognition](https://github.com/Uberi/speech_recognition) | Unified STT interface supporting multiple engines |
+| [webrtcvad](https://github.com/wiseman/py-webrtcvad) | Voice activity detection |
+| [noisereduce](https://github.com/timsainb/noisereduce) | Noise reduction in Python |
+| [praat-parselmouth](https://github.com/YannickJadoul/Parselmouth) | Python interface to Praat for phonetics |
+
+---
+
+## Datasets
+
+### Speech Recognition (STT) Datasets
+
+| Dataset | Hours | Languages | Description |
+|---------|-------|-----------|-------------|
+| [Common Voice (Mozilla)](https://commonvoice.mozilla.org/) | 30,000+ | 100+ | Crowdsourced multilingual corpus, CC0 |
+| [LibriSpeech](https://www.openslr.org/12) | 1,000 | EN | Read speech from LibriVox, standard ASR benchmark |
+| [MLS (Multilingual LibriSpeech)](https://www.openslr.org/94) | 50,000 | 8 | Multilingual audiobook corpus |
+| [GigaSpeech](https://github.com/SpeechColab/GigaSpeech) | 10,000 | EN | Podcasts, YouTube, audiobooks |
+| [VoxPopuli](https://github.com/facebookresearch/voxpopuli) | 400K unlabelled | 23 | European Parliament recordings |
+| [LibriLight](https://github.com/facebookresearch/libri-light) | 60,000 | EN | Unlabelled audiobook dataset |
+| [GigaST](https://huggingface.co/datasets) | 400,000 | Multi | Largest multilingual STT dataset |
+| [AISHELL](https://www.openslr.org/33) | 178 | ZH | Mandarin read speech |
+
+### Speech Synthesis (TTS) Datasets
+
+| Dataset | Hours | Speakers | Description |
+|---------|-------|----------|-------------|
+| [LibriTTS](https://www.openslr.org/60) | 585 | 2,456 | Read speech for TTS, derived from LibriSpeech |
+| [VCTK](https://datashare.ed.ac.uk/handle/10283/3443) | 44 | 109 | English speech with diverse accents |
+| [LJSpeech](https://keithito.com/LJ-Speech-Dataset/) | 24 | 1 (female) | Standard single-speaker TTS benchmark |
+| [JVS Corpus](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus) | 30 | 100 | Japanese speech corpus |
+| [Common Voice TTS splits](https://commonvoice.mozilla.org/) | Varies | 100+ | Multilingual crowdsourced TTS data |
 
 ---
 
@@ -319,6 +541,7 @@
 | [Speech and Language Processing (Jurafsky)](https://web.stanford.edu/~jurafsky/slp3/) | Definitive textbook, 3rd ed. draft |
 | [ESPnet Tutorial](https://github.com/espnet/espnet) | Hands-on speech processing recipes |
 | [Librosa Tutorials](https://librosa.org/doc/latest/tutorial.html) | Audio analysis with Python |
+| [NVIDIA NeMo Tutorials](https://docs.nvidia.com/nemo-framework/user-guide/) | TTS/ASR training pipelines |
 
 ### Blogs & Communities
 
@@ -329,6 +552,7 @@
 | [r/LocalLLaMA (Reddit)](https://www.reddit.com/r/LocalLLaMA/) | Self-hosted AI including speech models |
 | [Hugging Face Audio Hub](https://huggingface.co/models?pipeline_tag=text-to-speech) | Audio model repository |
 | [NVIDIA Developer Blog](https://developer.nvidia.com/blog/) | Speech AI and NeMo updates |
+| [The Neural Maze](https://theneuralmaze.substack.com/) | Speech AI newsletter |
 | [The Puddle Report](https://thepuddlereport.com/) | Speech technology news |
 
 ---
@@ -342,28 +566,6 @@
 | [ASRU](https://asruworkshop.org/) | IEEE Automatic Speech Recognition Workshop |
 | [SLT](https://slt2026.org/) | IEEE Spoken Language Technology Workshop |
 | [WASPAA](https://waspaa.com/) | IEEE Workshop on Applications of Signal Processing to Audio |
-
----
-
-## Benchmarks & Leaderboards
-
-### STT/ASR Benchmarks
-
-| Benchmark | Metric | Description |
-|-----------|--------|-------------|
-| **Hugging Face Open ASR** | WER (lower is better) | Community leaderboard, #1: Cohere Transcribe (5.42%) |
-| **LibriSpeech test-clean** | WER | Standard academic benchmark, SOTA < 2% |
-| **Common Voice test** | WER | Crowdsourced multilingual evaluation |
-
-### TTS Benchmarks
-
-| Metric | Description |
-|--------|-------------|
-| **MOS (Mean Opinion Score)** | Human-rated audio quality (1-5), human speech ~4.5 |
-| **CMOS (Comparative MOS)** | Relative quality comparison between systems |
-| **MCD (Mel-Cepstral Distortion)** | Objective spectral distance (lower is better) |
-| **WER (TTS output)** | ASR evaluated on generated speech |
-| **RTF (Real-Time Factor)** | Inference speed (< 1 = real-time) |
 
 ---
 
