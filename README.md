@@ -165,6 +165,7 @@
 | [RVC](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI) | Retrieval-based voice conversion with GUI | MIT |
 | [so-vits-svc](https://github.com/svc-develop-team/so-vits-svc) | Singing voice conversion using VITS | MIT |
 | [WhisperSpeech](https://github.com/WhisperSpeech/WhisperSpeech) | Speech-to-speech translation and conversion | — |
+| [voicetoinstrument.com](https://voicetoinstrument.com) | Convert voice to instrumental tracks using AI | — |
 
 ---
 
