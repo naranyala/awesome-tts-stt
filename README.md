@@ -126,6 +126,7 @@ TTS is the voice, emotion, and identity of the agent. Achieving a truly natural 
 | [Azure AI Speech](https://azure.microsoft.com/products/ai-services/ai-speech/) | 100+ | Yes (Personal Voice) | Yes | Pay-per-char |
 | [Amazon Polly](https://aws.amazon.com/polly/) | 50+ | Yes (Neural) | Yes | $4-100/1M chars |
 | [Fish Audio](https://fish.audio/) | Multi | Yes (10-30s) | Yes (~250ms) | Freemium |
+| [FlowSpeech](https://flowspeech.io/) | Multi | No | No | Freemium |
 | [PlayHT](https://play.ht/) | 142 | Yes (instant) | Yes (~300ms) | $39-99/mo |
 | [Deepgram Aura-2](https://deepgram.com/) | 7 + 40 English accents | No | Yes (90ms) | $0.03/1k chars |
 | [Resemble AI](https://www.resemble.ai/) | Multi | Yes (10s sample) | Yes (~200ms) | Enterprise |
