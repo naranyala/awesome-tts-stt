@@ -58,6 +58,7 @@ In a cascaded Speech-to-Speech pipeline, STT is the critical sensory input. To m
 | [Speechmatics](https://www.speechmatics.com/) | 30+ | Diarization, real-time streaming | Custom |
 | [Rev AI](https://www.rev.ai/) | 30+ | AI + human transcription | $0.005/sec |
 | [Gladia Solaria](https://www.gladia.io/) | Multi | Universal model, real-time | Pay-per-char |
+| [Gradium](https://gradium.ai/) | 5 | Real-time streaming, translation | Freemium |
 
 ### Architecture Reference
 
@@ -129,6 +130,7 @@ TTS is the voice, emotion, and identity of the agent. Achieving a truly natural 
 | [PlayHT](https://play.ht/) | 142 | Yes (instant) | Yes (~300ms) | $39-99/mo |
 | [Deepgram Aura-2](https://deepgram.com/) | 7 + 40 English accents | No | Yes (90ms) | $0.03/1k chars |
 | [Resemble AI](https://www.resemble.ai/) | Multi | Yes (10s sample) | Yes (~200ms) | Enterprise |
+| [Gradium](https://gradium.ai/) | 5 | Yes (instant) | Yes (158ms P50) | Freemium |
 
 ### Architecture Reference
 
@@ -174,6 +176,7 @@ Speech-to-Speech (or Speech2Speech) is the ultimate frontier of conversational A
 | [Gemini Multimodal Live API](https://ai.google.dev/api/live) | Low (<300ms) | Native audio/text input & output, multi-turn dialogue | Pay-per-token |
 | [OpenAI Realtime API](https://platform.openai.com/docs/guides/realtime) | Low (~300ms) | Multimodal speech-to-speech, function calling | $0.06/min input, $0.24/min output |
 | [Hume EVI](https://hume.ai/) | Ultra-low (~200ms) | Empathic voice interface, emotion detection | $0.072/min |
+| [Gradium Live Translation](https://gradium.ai/) | Low (streaming) | Live speech-to-speech translation across en/fr/de/es/pt | 45k credits free, ~$0.10/min |
 
 ### AI Voice Agent Platforms
 
